@@ -1,0 +1,7 @@
+# Free public information website only. No paid backend or disk.
+services:
+  - type: web
+    name: goo-resident
+    runtime: static
+    buildCommand: echo "Static site ready"
+    staticPublishPath: ./public-site
