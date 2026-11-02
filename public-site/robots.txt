@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://goo-resident.onrender.com/sitemap.xml
