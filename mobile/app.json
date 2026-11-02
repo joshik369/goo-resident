@@ -1,0 +1,9 @@
+{
+ "expo":{
+  "name":"Goo Resident","slug":"goo-resident","version":"1.0.0","orientation":"portrait","scheme":"gooresident","userInterfaceStyle":"light",
+  "icon":"../live/public/icon-512.png",
+  "ios":{"supportsTablet":true,"bundleIdentifier":"com.gooresident.portal","infoPlist":{"ITSAppUsesNonExemptEncryption":false}},
+  "android":{"package":"com.gooresident.portal"},
+  "plugins":["expo-secure-store"]
+ }
+}

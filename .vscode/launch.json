@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Goo Resident: Run website",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/live/server.cjs",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "C:/Users/Joshi/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"],
+      "serverReadyAction": {
+        "pattern": "(?:Private setup \\(expires in 24 hours\\)|Local): (https?://\\S+)",
+        "uriFormat": "%s",
+        "action": "openExternally"
+      }
+    }
+  ]
+}
+
+

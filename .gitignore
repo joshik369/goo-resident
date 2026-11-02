@@ -1,0 +1,10 @@
+node_modules/
+.tools/
+live/data/
+live/*.sqlite*
+mobile/.expo/
+mobile/dist/
+.env
+.env.*
+!.env.example
+*.log

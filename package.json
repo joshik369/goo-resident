@@ -1,0 +1,15 @@
+{
+  "name": "goo-resident",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Goo Resident website, shared backend, and iPhone/Android app",
+  "scripts": {
+    "start": "node live/server.cjs",
+    "dev": "node live/server.cjs",
+    "test": "node --test live/server.test.cjs",
+    "demo": "node serve.cjs",
+    "test:demo": "node check.cjs",
+    "admin:reset": "node live/admin-reset.cjs"
+  },
+  "engines": { "node": ">=24.22.0" }
+}
