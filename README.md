@@ -25,7 +25,7 @@ This PC's VS Code launch configuration uses the installed Codex Node runtime dir
 
 ## Important boundaries
 
-This is a working local implementation, not a finished public production deployment or an independent security certification. The original Sites URL and GitHub repository still contain the previously published prototype until explicitly updated/migrated. The new Node/SQLite runtime cannot be deployed as static files to that old Site.
+This is a working local implementation, not a finished public production deployment or an independent security certification. The GitHub repository contains this source; the original Sites URL still serves the earlier prototype. The new Node/SQLite runtime cannot be deployed as static files to that old Site.
 
 Real recurring payment collection, provider webhooks/reconciliation, email/SMS/push delivery, automated account recovery delivery, administrator MFA, store signing and production hosting are not connected. Payments displayed as office-recorded require independent verification by staff. Saved auto-pay preferences never claim collection is active. Invitations/reset links work but must be privately delivered by the office after identity verification.
 
@@ -46,3 +46,11 @@ See `mobile/README.md`. Both platforms share the same backend. Set `EXPO_PUBLIC_
 ## Deployment
 
 `live/Dockerfile` provides a Node container. Build from the repository root with `docker build -f live/Dockerfile -t goo-resident .`. Configure `PUBLIC_ORIGIN`, `ADMIN_EMAIL`, `HOST`, `PORT` and `NODE_ENV` (see `live/.env.example`). Mount persistent storage at `/app/live/data`, terminate HTTPS at a trusted reverse proxy, and retain one writer instance. Restrict access to first-start logs because they contain the private administrator activation link. Never commit databases, activation links, passwords, `.env` files or session tokens.
+
+## Public homepage and search
+
+The public homepage is `/`; resident and office sign-in is `/portal`. Only the homepage is listed in `/sitemap.xml`. Portal pages and API responses have noindex headers; account permissions still enforce privacy independently of crawler directives. `robots.txt` announces the sitemap. See `DEPLOY.md` for Render setup and Google Search Console steps.
+
+## Payment calendar
+
+Office billing forms include a separate payment due date. The web calendar shows amber due-date entries, blue office-recorded payments and green community events, with a monthly payment-date list below. The native app includes a dated payment agenda. Old charges without due dates remain undated; the office must supply those dates. Calendar due entries are the original charge schedule, not a claim that a charge remains unpaid: payment allocation is not implemented. These private features run in the local/backend app; the free public Render site publishes only public-site/.

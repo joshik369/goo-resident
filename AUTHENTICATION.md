@@ -11,3 +11,7 @@ The supplied office email is bootstrapped once as an inactive administrator. The
 API responses scope apartment data on the server and omit blocks, staff notes and all other residents' account data. Individual violations additionally check the recipient account. Authentication/account/data authorization behavior is covered by the integration test. Passwords, tokens and records are not written to localStorage.
 
 Not yet implemented: automated verification/recovery email delivery, administrator MFA, managed-provider SSO, advanced abuse monitoring, lease-period archival isolation for tenant turnover, and independently audited production operations. The local password backend is not the old Sites hosted authentication stack, and the existing static Sites URL has not been switched over. Internet rollout requires an HTTPS server host with persistent storage and an appropriate security/operations review.
+
+## Password salt verification
+
+Each password is hashed with scrypt using a new cryptographically random 32-byte salt, including after resets. The salt is stored alongside the hash (it is not a password or secret). Automated integration checks verify different salts for accounts using the same test password, salt rotation on reset, incorrect-password rejection, and session invalidation.
